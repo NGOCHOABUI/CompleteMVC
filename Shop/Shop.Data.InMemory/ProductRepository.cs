@@ -10,9 +10,11 @@ namespace Shop.Data.InMemory
 {
     public class ProductRepository
     {
+        //Caching
         ObjectCache cache = MemoryCache.Default;
         List<Product> products;
 
+        //Constructor
         public ProductRepository()
         {
             products = cache["products"] as List<Product>;
@@ -21,12 +23,17 @@ namespace Shop.Data.InMemory
             }
         }
 
+        //SAVE Product
         public void Commit() {
             cache["products"] = products;
         }
+
+        //ADD Product
         public void Insert(Product p) {
             products.Add(p);
         }
+
+        //UPDATE Product
         public void Update(Product product) {
             Product productToUpdate = products.Find(p => p.Id == product.Id);
             if (productToUpdate != null)
@@ -37,6 +44,8 @@ namespace Shop.Data.InMemory
                 throw new Exception("Product not found");
             }
         }
+
+        //FIND Product
         public Product Find(string Id) {
             Product product = products.Find(p => p.Id == Id);
             if (product != null)
@@ -48,9 +57,13 @@ namespace Shop.Data.InMemory
                 throw new Exception("Product not found");
             }
         }
+        
+        //CREATE Queryable Product Collections
         public IQueryable<Product> Collection() {
             return products.AsQueryable();
         }
+
+        //DELETE Product
         public void Delete(string Id) {
 
             Product productToDelete = products.Find(p => p.Id == Id);

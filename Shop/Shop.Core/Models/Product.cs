@@ -22,6 +22,7 @@ namespace Shop.Core.Models
         public string Category { get; set; }
         public string Image { get; set; }
 
+        //Initialize with Id
         public Product()
         {
             this.Id = Guid.NewGuid().ToString();
