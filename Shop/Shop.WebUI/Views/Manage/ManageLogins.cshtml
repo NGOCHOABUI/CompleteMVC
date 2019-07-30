@@ -19,12 +19,12 @@
     }
     else
     {
-        if (Model.CurrentLogins.Count > 0)
+        if (model.CurrentLogins.Count > 0)
         {
             <h4>Registered Logins</h4>
             <table class="table">
                 <tbody>
-                    @foreach (var account in Model.CurrentLogins)
+                    @foreach (var account in model.CurrentLogins)
                     {
                         <tr>
                             <td>@account.LoginProvider</td>
@@ -51,14 +51,14 @@
                 </tbody>
             </table>
         }
-        if (Model.OtherLogins.Count > 0)
+        if (model.OtherLogins.Count > 0)
         {
             using (Html.BeginForm("LinkLogin", "Manage"))
             {
                 @Html.AntiForgeryToken()
                 <div id="socialLoginList">
                 <p>
-                    @foreach (AuthenticationDescription p in Model.OtherLogins)
+                    @foreach (AuthenticationDescription p in model.OtherLogins)
                     {
                         <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
                     }
