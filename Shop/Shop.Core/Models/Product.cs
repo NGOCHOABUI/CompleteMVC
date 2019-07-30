@@ -4,10 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Shop.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public string Id { get; set; }
-
         [StringLength(20)]
         [DisplayName("ProductName")]
         public string Name { get; set; }
@@ -17,12 +15,6 @@ namespace Shop.Core.Models
         public decimal Price { get; set; }
         public string Category { get; set; }
         public string Image { get; set; }
-
-        //Initialize with Id
-        public Product()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
 
     }
 }

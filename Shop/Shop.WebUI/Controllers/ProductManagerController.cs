@@ -6,16 +6,17 @@ using System.Web.Mvc;
 using Shop.Core.Models;
 using Shop.Core.ViewModels;
 using Shop.Data.InMemory;
+using Shop.DataAccess.InMemory;
 
 namespace Shop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        ProductRepository context;
-        ProductCategoryRepository productCategories;
+        InMemoryRepository<Product> context;
+        InMemoryRepository<ProductCategory> productCategories;
         public ProductManagerController() {
-            context = new ProductRepository();
-            productCategories = new ProductCategoryRepository();
+            context = new InMemoryRepository<Product>();
+            productCategories = new InMemoryRepository<ProductCategory>();
         }
 
         // GET: ProductManager
