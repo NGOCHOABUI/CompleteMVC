@@ -56,7 +56,7 @@ namespace Shop.Data.InMemory
             Product productToDelete = products.Find(p => p.Id == Id);
             if (productToDelete != null)
             {
-                productToDelete = product;
+                products.Remove(productToDelete);
             }
             else
             {
