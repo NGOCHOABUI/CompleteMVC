@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Shop.Core.Contracts;
 using Shop.Core.Models;
 using Shop.Core.ViewModels;
 using Shop.Data.InMemory;
-using Shop.DataAccess.InMemory;
 
 namespace Shop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        InMemoryRepository<Product> context;
-        InMemoryRepository<ProductCategory> productCategories;
-        public ProductManagerController() {
-            context = new InMemoryRepository<Product>();
-            productCategories = new InMemoryRepository<ProductCategory>();
+        IRepository<Product> context;
+        IRepository<ProductCategory> productCategories;
+        public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext) {
+            this.context = productContext;
+            this.productCategories = productCategoryContext;
         }
 
         // GET: ProductManager
