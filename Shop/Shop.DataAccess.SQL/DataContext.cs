@@ -15,6 +15,7 @@ namespace Shop.DataAccess.SQL
         {
         }
 
+        //DbSet for migrations
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
     }
