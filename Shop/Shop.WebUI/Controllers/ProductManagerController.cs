@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Shop.Core.Models;
 using Shop.Core.ViewModels;
 using Shop.Data.InMemory;
-using Shop.DataAccess.InMemory;
 
 namespace Shop.WebUI.Controllers
 {

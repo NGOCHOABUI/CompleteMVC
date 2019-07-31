@@ -1,10 +1,7 @@
 ﻿using Shop.Core.Models;
 using Shop.Data.InMemory;
-using Shop.DataAccess.InMemory;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Shop.WebUI.Controllers
