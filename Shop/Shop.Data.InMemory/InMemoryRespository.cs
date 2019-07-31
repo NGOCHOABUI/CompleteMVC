@@ -6,7 +6,7 @@ using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.DataAccess.InMemory
+namespace Shop.Data.InMemory
 {
     public class InMemoryRepository<T> where T : BaseEntity
     {
